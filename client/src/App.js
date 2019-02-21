@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
 import Nav from "./components/Nav";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NoMatch from "./pages/NoMatch";
 import Books from "./pages/Books";
+import SavedBooks from "./pages/SavedBooks";
 
 class App extends Component {
   render() {
@@ -15,7 +16,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Books} />
               <Route exact path="/books" component={Books} />
-              {/* <Route exact path="/books/:id" component={Detail} /> */}
+              <Route exact path="/saved-books" component={SavedBooks} />
               <Route component={NoMatch} />
             </Switch>
           </div>

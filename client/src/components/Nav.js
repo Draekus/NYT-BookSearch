@@ -15,14 +15,14 @@ const Nav = props => {
             id="nav-mobile"
             className="brand-logo center">
             <i className="material-icons">import_contacts</i>
-            NYT Book Search
+            Google Book Search
           </a>
           <ul className="left hide-on-med-and-down">
             <li>
               <a href="/books">Search</a>
             </li>
             <li>
-              <a href="/">Saved Books</a>
+              <a href="/saved-books">Saved Books</a>
             </li>
           </ul>
         </div>
