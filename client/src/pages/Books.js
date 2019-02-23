@@ -21,8 +21,7 @@ class Books extends Component {
   };
 
   googleAPI = keyword => {
-    const apikey =
-      process.env.APIKEY;
+    const apikey = process.env.APIKEY || "AIzaSyBKXCtV0DMfY3yCBkqQ_z16KkVqoviMNig";
     axios
       .get(
         `https://www.googleapis.com/books/v1/volumes?q=${keyword}&key=${apikey}`
