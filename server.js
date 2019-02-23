@@ -32,6 +32,7 @@ app.get("/api/books", (req, res) => {
 
 // Route that adds new book to the database
 app.post("/api/books", (req, res) => {
+  console.log(req.body);
   db.Book.create(req.body)
     .then(dbBook => {
       res.json(201, dbBook);
