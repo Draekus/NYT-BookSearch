@@ -44,7 +44,7 @@ class SavedBooks extends Component {
                   image={books.image}
                   link={books.link}
                   key={index}
-                  id={books.id}
+                  id={books._id}
                   saved={true}
                   deleteBook={this.deleteBook}
                   target="_blank"
