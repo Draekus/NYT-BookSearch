@@ -63,6 +63,11 @@ class Books extends Component {
       link: props.link,
       saved: true,
     });
+    let newBooks = this.state.books;
+    newBooks.splice(props.id);
+    this.setState({
+      books: newBooks,
+    });
   };
   clickHandler = event => {
     this.googleAPI(this.state.keyword);
