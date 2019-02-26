@@ -63,15 +63,13 @@ class Books extends Component {
       link: props.link,
       saved: true,
     });
-    let newBooks = this.state.books;
-    newBooks.splice(props.id);
+    const oldBooks = this.state.books;
     this.setState({
-      books: newBooks,
+      books: this.state.books.splice(props.index),
     });
   };
   clickHandler = event => {
     this.googleAPI(this.state.keyword);
-    console.log(this.state.books);
   };
 
   handleInputChange = event => {
@@ -91,7 +89,7 @@ class Books extends Component {
           keyword={this.state.keyword}
         />
         <WrapperDiv>
-          {this.state.books ? (
+          {this.state.books.length ? (
             this.state.books.map((books, index) => {
               return (
                 <Card
@@ -101,6 +99,7 @@ class Books extends Component {
                   image={books.image}
                   link={books.link}
                   key={index}
+                  index={index}
                   id={index}
                   saved={false}
                   saveBook={this.saveBook}

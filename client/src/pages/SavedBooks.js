@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
-import Search from "../components/Search";
 import Styled from "styled-components";
 import Card from "../components/Card";
 import API from "../utils/API";
@@ -22,19 +20,20 @@ class SavedBooks extends Component {
   async componentDidMount() {
     // When this component loads hit the books api and populate the state with books
     const msg = await API.getBooks();
-    console.log(msg.data);
-    this.setState({savedBooks: msg.data});
-    
+    this.setState({ savedBooks: msg.data });
   }
 
-  deleteBook = props => {
-    API.deleteBook(props.id);
-  }
+  deleteBook = async ({ id, index }) => {
+    await API.deleteBook(id);
+    const msg = await API.getBooks();
+    this.setState({ savedBooks: msg.data })
+
+  };
   render() {
     return (
       <div>
         <WrapperDiv>
-          {this.state.savedBooks ? (
+          {this.state.savedBooks.length ? (
             this.state.savedBooks.map((books, index) => {
               return (
                 <Card
@@ -44,6 +43,7 @@ class SavedBooks extends Component {
                   image={books.image}
                   link={books.link}
                   key={index}
+                  index={index}
                   id={books._id}
                   saved={true}
                   deleteBook={this.deleteBook}

@@ -1,6 +1,5 @@
 import React from "react";
 import Styled from "styled-components";
-import API from "../utils/API";
 
 const Button = Styled.button`
   float: right;
@@ -13,7 +12,7 @@ const Card = props => {
         <h2 className="header">{props.title}</h2>
         <div className="card horizontal">
           <div className="card-image">
-            <img src={props.image} alt="Sorry no image found." />
+            <img src={props.image} alt="The file could not be found." />
           </div>
           <div className="card-stacked">
             <div className="card-content">
@@ -26,10 +25,10 @@ const Card = props => {
                 <Button
                   className="btn waves-effect waves-light light-blue darken-4 card-button"
                   onClick={() => {
-                    props.deleteBook(props.id);
+                    props.deleteBook(props);
                   }}>
                   Delete
-                  <i class="material-icons right">send</i>
+                  <i className="material-icons right">send</i>
                 </Button>
               ) : (
                 <Button
@@ -38,7 +37,7 @@ const Card = props => {
                     props.saveBook(props);
                   }}>
                   Save
-                  <i class="material-icons right">send</i>
+                  <i className="material-icons right">send</i>
                 </Button>
               )}
             </div>
